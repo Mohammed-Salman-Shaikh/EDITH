@@ -5,12 +5,13 @@ import wikipedia                         #"pip install wikipedia" type in termin
 import webbrowser
 import os
 import smtplib
+import subprocess
 
 engine = pyttsx3.init('sapi5')
 voices= engine.getProperty('voices')     #getting details of current voice
 '#print(voices[0].id)'
 
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[0].id)
 # voice[0].id = Male voice 
 # voice[1].id = Female voice
 
@@ -29,7 +30,7 @@ def WishMe():
     else:
         speak("Good Evening!")
 
-    speak("I am Jarvis. Tell me how may I help you Sir")
+    speak("I am Jarvis Tell me how may I help you Sir")
 
 def takeCommand():
     '''It takes microphone input from the user and returns string output'''
@@ -78,7 +79,8 @@ if __name__ == "__main__":
             webbrowser.open("youtube.com")
         
         elif 'open google' in query:
-            webbrowser.open("google.com")
+            subprocess.call("C:\Program Files\Google\Chrome\Application\\chrome.exe")
+            subprocess.Popen("C:\Program Files\Google\Chrome\Application\\chrome.exe")
         
         elif 'open stackoverflow' in query:
             webbrowser.open("stackoverflow.com")
@@ -101,6 +103,11 @@ if __name__ == "__main__":
         #    except Exception as e:
         #        print(e)
         #        speak("Sorry Bhai. I am not able to send this email") 
+
+        #elif 'open  chrome' in query:
+        #    codePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+        #    os.startfile(codePath)
+
 
         elif 'shut up' in query:                            #to exit from the program
             break                           
